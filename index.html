@@ -375,6 +375,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;overflow:hidden}
 @media (hover:none){.shot-overlay{opacity:1;background:linear-gradient(180deg,transparent 60%,rgba(7,11,20,.7))}.shot-cta{transform:none;padding:7px 12px;font-size:12.5px}}
 .proj-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:700;font-size:14.5px;color:var(--blue-2)}
 .proj-link:hover{color:#fff}
+.proj-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px}
+.proj-links .proj-link{margin-top:0}
+.proj-link.ghost{color:var(--muted)}
+.proj-link.ghost:hover{color:#fff}
+
 .viewer{width:100%;background:#0B1220;border:1px solid var(--line-2);border-radius:var(--r-md);overflow:hidden}
 .viewer-top{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line);font-size:12px}
 .viewer-top i{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
@@ -463,7 +468,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;overflow:hidden}
 .fc5{top:-6px;right:70px;animation-delay:-5s}
 @keyframes bob{0%,100%{transform:translate3d(0,0,40px)}50%{transform:translate3d(0,-10px,40px)}}
 .face.back .serp-bar{margin-right:54px}
-@media (min-width:981px){.hero-right{margin-top:-190px}.flip{height:380px}}
+@media (min-width:981px){.hero-right{margin-top:-210px}.flip{height:380px}}
 .hero-right.load{animation:fadeUp .9s .7s cubic-bezier(.2,.8,.2,1) forwards}
 @media (max-width:980px){.fc1{left:-6px}.fc2{right:-6px}.fc3{left:-6px}}
 @media (max-width:600px){.flip{height:380px}.fc3,.fc5{display:none}.id-name b{font-size:19px}.mono{width:60px;height:60px}}
@@ -514,6 +519,68 @@ html.preloading .load,html.preloading .rise,html.preloading .l2 .rise{animation-
 .scene3d.moved .s3-hint{opacity:0}
 @media (max-width:980px){.scene3d{height:420px;margin:-20px -20px 0}}
 @media (max-width:600px){.scene3d{height:340px;margin:-10px -20px 0}.hero-right.has-3d .fc3,.hero-right.has-3d .fc5{display:none}.hero-right.has-3d .fc1{top:0;left:0}.hero-right.has-3d .fc2{top:40px;right:0}.hero-right.has-3d .fc4{bottom:0}}
+
+
+/* v3 additions */
+.about-top{display:grid;grid-template-columns:190px 1fr;gap:36px;align-items:center;margin:0 0 52px 272px}
+.about-top img{width:190px;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:20px;border:1px solid var(--line-2);background:#fff}
+.about-top .about-lead{margin:0}
+.about-top.no-photo{display:block}
+.posts{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.post a{display:flex;flex-direction:column;height:100%;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;transition:border-color .25s}
+.post a:hover{border-color:var(--blue)}
+.post small{color:var(--dim);font-size:13.5px}
+.post h3{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin-top:8px}
+.post p{color:var(--muted);font-size:15px;margin-top:10px;flex:1}
+.post .more{color:var(--blue-2);font-weight:700;font-size:14.5px;margin-top:16px}
+.faq{max-width:820px;margin:64px auto 0}
+.faq-title{font-family:var(--display);font-size:28px;letter-spacing:-.02em;margin-bottom:12px}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--blue-2);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);margin-top:10px}
+.wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:45;display:flex;align-items:center;gap:10px;background:#1FAF5A;color:#fff;font-weight:700;font-size:15px;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 14px 30px -12px rgba(0,0,0,.7);transition:transform .15s}
+.wa:hover{transform:translateY(-2px)}
+@media (max-width:980px){.about-top{margin-left:0;grid-template-columns:140px 1fr;gap:22px}.about-top img{width:140px}.posts{grid-template-columns:1fr}}
+@media (max-width:600px){.about-top{grid-template-columns:1fr}.wa span{display:none}.wa{padding:14px}}
+
+
+/* hero project deck */
+.deck{position:relative;height:508px;perspective:1800px}
+.dcard{position:absolute;left:0;right:0;top:44px;display:block;background:var(--surface);border:1px solid var(--line-2);border-radius:22px;padding:14px;box-shadow:0 40px 80px -40px rgba(0,0,0,.95);transform-origin:50% 0;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s,filter .9s;will-change:transform}
+.dcard[data-pos="0"]{transform:translate3d(0,0,0);opacity:1;z-index:5}
+.dcard[data-pos="1"]{transform:translate3d(0,-20px,-70px) scale(.95);opacity:.9;filter:brightness(.6);z-index:4;pointer-events:none}
+.dcard[data-pos="2"]{transform:translate3d(0,-36px,-140px) scale(.9);opacity:.65;filter:brightness(.45);z-index:3;pointer-events:none}
+.dcard[data-pos="3"]{transform:translate3d(0,-48px,-210px) scale(.85);opacity:.35;filter:brightness(.35);z-index:2;pointer-events:none}
+.dcard[data-pos="4"]{transform:translate3d(0,-80px,-260px) scale(.8);opacity:0;z-index:1;pointer-events:none}
+.dcard.leaving{transform:translate3d(0,70px,140px) rotateX(-10deg) scale(1.02)!important;opacity:0!important;z-index:6;transition:transform .7s cubic-bezier(.5,0,.75,0),opacity .7s}
+.dcard:hover{border-color:var(--blue)}
+.dq{display:flex;align-items:center;gap:10px;background:var(--bg-2);border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-size:14px;color:var(--text);margin-bottom:12px}
+.dq svg{color:var(--muted);flex:none}
+.dwin{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0B1220}
+.dbar{display:flex;align-items:center;gap:6px;padding:8px 12px;font-size:11.5px;color:var(--dim);border-bottom:1px solid var(--line)}
+.dbar i{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
+.dbar span{margin-left:8px}
+.dwin img{width:100%;aspect-ratio:16/8.4;object-fit:cover;object-position:top left}
+.dres{display:grid;gap:3px;padding:14px 6px 4px}
+.du{font-size:12.5px;color:var(--green)}
+.dt{font-size:17px;font-weight:700;color:var(--blue-2);line-height:1.3}
+.dcard:hover .dt{text-decoration:underline;text-underline-offset:3px}
+.dd{font-size:13.5px;color:var(--muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.dots{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;position:relative;z-index:6}
+.dot{position:relative;overflow:hidden;font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg-2);border:1px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer}
+.dot:hover{color:var(--text)}
+.dot.on{color:#fff;border-color:var(--blue)}
+.dot .fill{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--blue);transform:scaleX(0);transform-origin:left}
+.dot.on .fill{transform:scaleX(1)}
+.dot.run .fill{transform:scaleX(0);animation:fillbar 4.2s linear forwards}
+@keyframes fillbar{to{transform:scaleX(1)}}
+.deck-note{font-size:13px;color:var(--dim);margin-top:14px;max-width:46ch}
+@media (max-width:980px){.deck{height:500px}}
+@media (max-width:600px){.deck{height:440px}.dcard{top:46px;padding:10px}.dd{display:none}.dot{font-size:12px;padding:6px 11px}}
 
 /* ===== ANIMATIONS ===== */
 .progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--blue-2));z-index:30}
@@ -604,6 +671,7 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
         <li><a href="#work">Work</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
       </ul>
     </nav>
     <a href="#contact" class="btn btn-primary btn-sm">Hire me</a>
@@ -626,58 +694,37 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
         <p class="lead load d3">I develop <strong>ERP modules, e-commerce stores and business websites</strong>, and I bring two years of hands-on SEO experience ranking sites in the UK, US and UAE. One person who can build your site and grow its traffic.</p>
         <div class="ctas load d4">
           <a href="#work" class="btn btn-primary">See my work</a>
-          <a href="#contact" class="btn btn-ghost">Start a project</a>
+          <a href="https://wa.me/923321335513" class="btn btn-ghost" target="_blank" rel="noopener">Message me on WhatsApp</a>
           <a href="Rao_Farzam_Ahmed_CV.pdf" class="btn btn-ghost" download="Rao_Farzam_Ahmed_CV.pdf">Download resume <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
         </div>
       </div>
 
       <div class="hero-right load d5" id="heroRight">
-        <span class="fchip fc1"><i></i>ASP.NET &amp; VB.NET</span>
-        <span class="fchip fc2"><i></i>React.js</span>
-        <span class="fchip fc3"><i></i>WordPress</span>
-        <span class="fchip fc4 hot"><i></i>SEO that ranks</span>
-        <span class="fchip fc5"><i></i>12 ERP modules</span>
-        <div class="scene3d" id="scene3d" aria-label="3D illustration of a developer desk with an ERP dashboard, a Google result and code on screen" role="img"></div>
-      <div class="hero-card" id="heroCard">
-        <button class="flip" id="flip" aria-label="Flip card to see the other side">
-          <div class="face front">
-            <div class="id-top">
-              <span class="mono"><span>RF</span></span>
-              <div class="id-name"><b>Rao Farzam Ahmed</b><span>Developer &amp; SEO Specialist</span></div>
-            </div>
-            <div class="id-panels">
-              <div class="id-panel">
-                <p class="id-label">Build</p>
-                <div class="code"><i style="width:62%"></i><i class="c2" style="width:44%;margin-left:14px"></i><i class="c3" style="width:70%;margin-left:14px"></i><i style="width:38%;margin-left:28px"></i><i class="c2" style="width:55%;margin-left:14px"></i><i style="width:30%"></i></div>
-              </div>
-              <div class="id-panel">
-                <p class="id-label">Rank</p>
-                <svg class="spark" viewBox="0 0 120 64" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D7BFF" stop-opacity=".45"/><stop offset="1" stop-color="#3D7BFF" stop-opacity="0"/></linearGradient></defs><path d="M0 58 L18 54 L34 56 L50 44 L66 46 L82 30 L98 22 L120 6 L120 64 L0 64Z" fill="url(#sg)"/><path class="spark-line" d="M0 58 L18 54 L34 56 L50 44 L66 46 L82 30 L98 22 L120 6" fill="none" stroke="#7FA8FF" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
-                <span class="spark-pos">#1</span>
-              </div>
-            </div>
-            <div class="id-foot"><span>Based in Karachi, working worldwide</span><span class="flip-hint">Flip <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
-          </div>
-          <div class="face back">
-        <span class="rank">#1</span>
-        <div class="serp-bar">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <span id="typed">developer who also does SEO</span><span class="caret" aria-hidden="true"></span>
+        <div class="deck" id="deck" aria-roledescription="carousel" aria-label="Projects I built">
+          <a class="dcard" href="work/airsupply-erp.html" data-name="AirSupply ERP" aria-label="AirSupply ERP case study">
+  <div class="dq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>custom erp developer karachi</span></div>
+  <div class="dwin"><div class="dbar"><i></i><i></i><i></i><span>airsupply-erp</span></div><img src="images/erp-1.webp" alt="AirSupply ERP website screenshot" decoding="async"></div>
+  <div class="dres"><span class="du">raofarzam.github.io › work › airsupply-erp</span><span class="dt">AirSupply ERP case study | Rao Farzam Ahmed</span><span class="dd">An in-house ERP that runs a manufacturing company’s daily work: purchasing, sales, warehousing, import/export, HR and…</span></div>
+</a><a class="dcard" href="work/the-food-current.html" data-name="The Food Current" aria-label="The Food Current case study">
+  <div class="dq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>food magazine wordpress website</span></div>
+  <div class="dwin"><div class="dbar"><i></i><i></i><i></i><span>thefoodcurrent.com</span></div><img src="images/foodcurrent-1.webp" alt="The Food Current website screenshot" loading="lazy" decoding="async"></div>
+  <div class="dres"><span class="du">raofarzam.github.io › work › the-food-current</span><span class="dt">The Food Current case study | Rao Farzam Ahmed</span><span class="dd">A food news and culture magazine built on WordPress, with an editorial design and category sections, structured for…</span></div>
+</a><a class="dcard" href="work/velocity-cycles.html" data-name="Velocity Cycles" aria-label="Velocity Cycles case study">
+  <div class="dq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>online bicycle store website</span></div>
+  <div class="dwin"><div class="dbar"><i></i><i></i><i></i><span>velocity-cycles</span></div><img src="images/velocity-1.webp" alt="Velocity Cycles website screenshot" loading="lazy" decoding="async"></div>
+  <div class="dres"><span class="du">raofarzam.github.io › work › velocity-cycles</span><span class="dt">Velocity Cycles case study | Rao Farzam Ahmed</span><span class="dd">A complete bicycle e-commerce store with road, mountain, electric and kids’ bikes, a full shopping flow and its own…</span></div>
+</a><a class="dcard" href="work/toynest.html" data-name="ToyNest" aria-label="ToyNest case study">
+  <div class="dq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>online toy store website</span></div>
+  <div class="dwin"><div class="dbar"><i></i><i></i><i></i><span>toynest</span></div><img src="images/toynest-1.webp" alt="ToyNest website screenshot" loading="lazy" decoding="async"></div>
+  <div class="dres"><span class="du">raofarzam.github.io › work › toynest</span><span class="dt">ToyNest case study | Rao Farzam Ahmed</span><span class="dd">A colourful online toy store with category and age filters, wishlist and a full checkout flow, designed mobile-first.</span></div>
+</a><a class="dcard" href="work/gracious-garments.html" data-name="Gracious Garments" aria-label="Gracious Garments case study">
+  <div class="dq"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>pakistani fashion store online</span></div>
+  <div class="dwin"><div class="dbar"><i></i><i></i><i></i><span>gracious-garments</span></div><img src="images/gracious-1.webp" alt="Gracious Garments website screenshot" loading="lazy" decoding="async"></div>
+  <div class="dres"><span class="du">raofarzam.github.io › work › gracious-garments</span><span class="dt">Gracious Garments case study | Rao Farzam Ahmed</span><span class="dd">A multi-brand Pakistani fashion store with sale banners, best sellers, wedding wear and detailed product pages.</span></div>
+</a>
         </div>
-        <p class="serp-meta">About 1 result that does both</p>
-        <div class="result top">
-          <div class="r-site"><span class="r-fav">RF</span><div><b>Rao Farzam Ahmed</b><small>raofarzam.github.io</small></div></div>
-          <p class="r-title">Full-Stack Developer &amp; SEO Specialist</p>
-          <p class="r-desc">Websites, e-commerce stores and ERP systems, built properly and ranked on Google. Based in Karachi, working worldwide.</p>
-        </div>
-        <div class="result ghost" aria-hidden="true">
-          <div class="ghost-line" style="width:40%"></div>
-          <div class="ghost-line" style="width:75%;height:12px"></div>
-          <div class="ghost-line" style="width:90%"></div>
-        </div>
-                </div>
-        </button>
-      </div>
+        <div class="dots" role="tablist" aria-label="Choose a project"><button class="dot" type="button" data-i="0"><span class="fill"></span>AirSupply ERP</button><button class="dot" type="button" data-i="1"><span class="fill"></span>The Food Current</button><button class="dot" type="button" data-i="2"><span class="fill"></span>Velocity Cycles</button><button class="dot" type="button" data-i="3"><span class="fill"></span>ToyNest</button><button class="dot" type="button" data-i="4"><span class="fill"></span>Gracious Garments</button></div>
+        <p class="deck-note">Each card is a real page on this site, with its own title and description written for Google.</p>
       </div>
     </div>
   </div>
@@ -703,7 +750,7 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
       <div><h2>Two skills most people hire separately.</h2></div>
     </div>
 
-    <p class="about-lead">I’m Rao Farzam Ahmed. For three years I’ve worked on both sides of the web: <strong>building the software businesses run on</strong>, and <strong>getting websites found on Google</strong>.</p>
+    <div class="about-top no-photo"><p class="about-lead">I’m Rao Farzam Ahmed. For three years I’ve worked on both sides of the web: <strong>building the software businesses run on</strong>, and <strong>getting websites found on Google</strong>.</p></div>
 
     <div class="about-story">
       <p>Today I’m a <strong>Software Developer at AirSupply</strong>, a manufacturing company in Karachi, where I work on the company’s <strong>in-house ERP platform</strong>: an integrated system covering administration, purchasing, sales, banking, warehousing, import/export and HR. I develop and troubleshoot modules with ASP.NET, VB.NET and React.js, and I designed and built operations screens such as <strong>Task Setup, Task Manager and Meeting Manager</strong>. Independently delivering a major module earned me a promotion.</p>
@@ -877,6 +924,7 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
         </ul>
         <div class="chips"><span class="chip">ASP.NET</span><span class="chip">VB.NET</span><span class="chip">React.js</span></div>
         <p class="note">Taken from the live system, with customer and business data hidden for privacy.</p>
+        <p style="margin-top:18px"><a class="proj-link" href="work/airsupply-erp.html">Read the full case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
       </div>
     </article>
 
@@ -898,7 +946,7 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
     </div>
 
     <div class="projects">
-      <article class="proj wide"><button class="proj-shot" data-gallery="images/foodcurrent-1.webp,images/foodcurrent-2.webp,images/foodcurrent-3.webp,images/foodcurrent-4.webp" data-caps="Homepage hero|Full homepage|Category page|Article page" data-title="The Food Current" aria-label="View screenshots of The Food Current"><img src="images/foodcurrent-1.webp" alt="The Food Current website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">WordPress website · Live</p><h3>The Food Current</h3><p>A food news and culture magazine with category sections, trending stories, article pages and a clean editorial design. Built on WordPress and structured for SEO from launch.</p><div class="chips"><span class="chip">WordPress</span><span class="chip">Custom design</span><span class="chip">On-page SEO</span></div><a class="proj-link" href="https://thefoodcurrent.com/" target="_blank" rel="noopener">Visit live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div></article><article class="proj"><button class="proj-shot" data-gallery="images/velocity-1.webp,images/velocity-2.webp,images/velocity-3.webp,images/velocity-4.webp" data-caps="Homepage|Shop by category|Featured bikes|Shop with filters" data-title="Velocity Cycles" aria-label="View screenshots of Velocity Cycles"><img src="images/velocity-1.webp" alt="Velocity Cycles website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">E-commerce website</p><h3>Velocity Cycles</h3><p>A complete bicycle store with road, mountain, electric and kids’ categories, filters, cart, wishlist, checkout and customer accounts, plus an admin panel for products, orders and customers.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Cloudinary</span></div></div></article><article class="proj"><button class="proj-shot" data-gallery="images/toynest-1.webp,images/toynest-2.webp,images/toynest-3.webp" data-caps="Homepage|Featured toys|Shop with filters" data-title="ToyNest" aria-label="View screenshots of ToyNest"><img src="images/toynest-1.webp" alt="ToyNest website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">E-commerce website</p><h3>ToyNest</h3><p>A colourful online toy shop with featured products, category and age filters, product pages, cart, wishlist and a full checkout flow, fully responsive on mobile.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div></div></article><article class="proj"><button class="proj-shot" data-gallery="images/gracious-1.webp,images/gracious-2.webp,images/gracious-3.webp,images/gracious-4.webp" data-caps="Homepage banner|Top selling products|Wedding dresses category|Product details" data-title="Gracious Garments" aria-label="View screenshots of Gracious Garments"><img src="images/gracious-1.webp" alt="Gracious Garments website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">Fashion store website</p><h3>Gracious Garments</h3><p>A multi-brand clothing store for Pakistani fashion, with sale banners, best sellers, men’s and women’s wedding wear, product pages, sign-up, login and payment.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Owl Carousel</span></div></div></article><article class="proj"><div class="proj-art a4"><span>PHP</span></div><div class="proj-body"><p class="proj-type">E-commerce platform</p><h3>PHP & MySQL Store</h3><p>A full online store with an admin dashboard, multi-level categories, product and stock management, discounts, order tracking and PayPal checkout.</p><div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">PayPal</span></div></div></article><article class="proj"><div class="proj-art a5"><span>SustainableApp</span></div><div class="proj-body"><p class="proj-type">Mobile app</p><h3>SustainableApp</h3><p>A Flutter app that encourages eco-friendly living with tips on recycling, energy and water saving, Lottie animations, progress charts, user login and an admin panel.</p><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Lottie</span></div></div></article><article class="proj"><div class="proj-art a3"><span>Weather App</span></div><div class="proj-body"><p class="proj-type">Mobile app</p><h3>Weather App</h3><p>Search any city for real-time temperature, humidity, wind and conditions, with backgrounds that change with the weather. Works on Android and iOS.</p><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Weather API</span></div></div></article>
+      <article class="proj wide"><button class="proj-shot" data-gallery="images/foodcurrent-1.webp,images/foodcurrent-2.webp,images/foodcurrent-3.webp,images/foodcurrent-4.webp" data-caps="Homepage hero|Full homepage|Category page|Article page" data-title="The Food Current" aria-label="View screenshots of The Food Current"><img src="images/foodcurrent-1.webp" alt="The Food Current website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">WordPress website · Live</p><h3>The Food Current</h3><p>A food news and culture magazine with category sections, trending stories, article pages and a clean editorial design. Built on WordPress and structured for SEO from launch.</p><div class="chips"><span class="chip">WordPress</span><span class="chip">Custom design</span><span class="chip">On-page SEO</span></div><div class="proj-links"><a class="proj-link" href="work/the-food-current.html">Case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="proj-link" href="https://thefoodcurrent.com/" target="_blank" rel="noopener">Visit live site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div></div></article><article class="proj"><button class="proj-shot" data-gallery="images/velocity-1.webp,images/velocity-2.webp,images/velocity-3.webp,images/velocity-4.webp" data-caps="Homepage|Shop by category|Featured bikes|Shop with filters" data-title="Velocity Cycles" aria-label="View screenshots of Velocity Cycles"><img src="images/velocity-1.webp" alt="Velocity Cycles website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">E-commerce website</p><h3>Velocity Cycles</h3><p>A complete bicycle store with road, mountain, electric and kids’ categories, filters, cart, wishlist, checkout and customer accounts, plus an admin panel for products, orders and customers.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Cloudinary</span></div><div class="proj-links"><a class="proj-link" href="work/velocity-cycles.html">Case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="proj-link" href="https://raofarzam.github.io/Velocity-Cycles/" target="_blank" rel="noopener">Live demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="proj-link ghost" href="https://github.com/raofarzam/Velocity-Cycles" target="_blank" rel="noopener">View code <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></a></div></div></article><article class="proj"><button class="proj-shot" data-gallery="images/toynest-1.webp,images/toynest-2.webp,images/toynest-3.webp" data-caps="Homepage|Featured toys|Shop with filters" data-title="ToyNest" aria-label="View screenshots of ToyNest"><img src="images/toynest-1.webp" alt="ToyNest website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">E-commerce website</p><h3>ToyNest</h3><p>A colourful online toy shop with featured products, category and age filters, product pages, cart, wishlist and a full checkout flow, fully responsive on mobile.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div><div class="proj-links"><a class="proj-link" href="work/toynest.html">Case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="proj-link" href="https://raofarzam.github.io/ToyNest/" target="_blank" rel="noopener">Live demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="proj-link ghost" href="https://github.com/raofarzam/ToyNest" target="_blank" rel="noopener">View code <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></a></div></div></article><article class="proj"><button class="proj-shot" data-gallery="images/gracious-1.webp,images/gracious-2.webp,images/gracious-3.webp,images/gracious-4.webp" data-caps="Homepage banner|Top selling products|Wedding dresses category|Product details" data-title="Gracious Garments" aria-label="View screenshots of Gracious Garments"><img src="images/gracious-1.webp" alt="Gracious Garments website screenshot" loading="lazy" decoding="async"><span class="shot-overlay"><span class="shot-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Explore project</span></span></button><div class="proj-body"><p class="proj-type">Fashion store website</p><h3>Gracious Garments</h3><p>A multi-brand clothing store for Pakistani fashion, with sale banners, best sellers, men’s and women’s wedding wear, product pages, sign-up, login and payment.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Owl Carousel</span></div><div class="proj-links"><a class="proj-link" href="work/gracious-garments.html">Case study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="proj-link" href="https://raofarzam.github.io/Gracious-Garments/Index.html" target="_blank" rel="noopener">Live demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="proj-link ghost" href="https://github.com/raofarzam/Gracious-Garments" target="_blank" rel="noopener">View code <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></a></div></div></article><article class="proj"><div class="proj-art a5"><span>SustainableApp</span></div><div class="proj-body"><p class="proj-type">Mobile app</p><h3>SustainableApp</h3><p>A Flutter app that encourages eco-friendly living with tips on recycling, energy and water saving, Lottie animations, progress charts, user login and an admin panel.</p><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Lottie</span></div><div class="proj-links"><a class="proj-link" href="https://github.com/raofarzam/SustainableApp" target="_blank" rel="noopener">View code <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg></a></div></div></article><article class="proj"><div class="proj-art a2"><span>PetCareApp</span></div><div class="proj-body"><p class="proj-type">Mobile app</p><h3>PetCareApp</h3><p>A Flutter app for pet care with three roles: shelter admins manage pets, owners adopt and book appointments, and vets keep medical records.</p><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Role-based access</span></div><div class="proj-links"><a class="proj-link ghost" href="#contact">Private code, available on request</a></div></div></article>
     </div>
   </div>
 </section>
@@ -953,6 +1001,18 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
   </div>
 </section>
 
+<!-- BLOG -->
+<section id="blog">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-tag">Blog</p>
+      <div><h2>Notes on SEO and websites.</h2><p>Plain-language guides for business owners, from someone who builds websites and ranks them.</p></div>
+    </div>
+    <ol class="posts"><li class="post"><a href="blog/why-your-new-website-is-not-on-google.html"><small>6 min read</small><h3>Why your new website isn’t on Google yet (and the four steps that fix it)</h3><p>Launched a website and can’t find it on Google? Here are the four steps I used to get my own portfolio in front of Google: Search Console, verification, a sitemap and an indexing request.</p><span class="more">Read article</span></a></li><li class="post"><a href="blog/off-page-seo-link-building-for-small-businesses.html"><small>7 min read</small><h3>Off-page SEO for small businesses: how link building really works</h3><p>What backlinks are, why Google still trusts them, and the safe ways a small business can earn them, from someone who did link building for UK, US and UAE clients.</p><span class="more">Read article</span></a></li><li class="post"><a href="blog/wordpress-or-custom-website.html"><small>6 min read</small><h3>WordPress or a custom-coded website: which one does your business need?</h3><p>A plain comparison of WordPress and hand-coded websites: cost, speed, editing, SEO and when each one is the right call for a small business.</p><span class="more">Read article</span></a></li></ol>
+    <p style="margin-top:24px"><a class="btn btn-ghost" href="blog/index.html">All articles</a></p>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
@@ -999,6 +1059,14 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
         <p class="form-note" id="formNote">This opens your email app with your message ready to send.</p>
       </form>
     </div>
+    <div class="faq">
+      <h3 class="faq-title">Common questions</h3>
+      <details><summary>Do you work with clients outside Pakistan?</summary><p>Yes. I work remotely, and my SEO work has been for clients in the UK, US and UAE. We can talk on WhatsApp, email or a video call at a time that suits your time zone.</p></details>
+      <details><summary>How long does a website take?</summary><p>It depends on the size. A small business website usually takes one to three weeks, an online store longer. You’ll get a clear timeline after our first conversation.</p></details>
+      <details><summary>Can you work on my existing website?</summary><p>Yes. I can improve its design, speed or SEO, or add new pages and features, whether it’s WordPress or custom-built.</p></details>
+      <details><summary>Can you guarantee the #1 spot on Google?</summary><p>No, and be careful of anyone who does. What I can promise is honest SEO work: the right keywords, a well-built site and quality links, with clear reports so you can see progress.</p></details>
+      <details><summary>Will I be able to update the website myself?</summary><p>If you want to, yes. WordPress sites are easy to edit and I’ll show you how. For custom sites I can build a simple admin area or handle updates for you.</p></details>
+    </div>
   </div>
 </section>
 </main>
@@ -1013,14 +1081,7 @@ body.cursor-on .cur,body.cursor-on .cur-glow{opacity:1}
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/GammaCorrectionShader.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js" defer></script>
+<a class="wa" href="https://wa.me/923321335513" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 2.9 2.9 0 00-.9 2.2 5.1 5.1 0 001 2.7 11.7 11.7 0 004.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Chat on WhatsApp</span></a>
 <script>
 document.addEventListener("DOMContentLoaded",function(){(function(){
   var btn=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
@@ -1030,7 +1091,7 @@ document.addEventListener("DOMContentLoaded",function(){(function(){
 
   // typed search phrases in the hero
   var phrases=['developer who also does SEO','rank my website in the UK','build my online store','Rao Farzam Ahmed'];
-  var el=document.getElementById('typed'), i=0, j=phrases[0].length, del=true;
+  var el=document.getElementById('typed')||document.createElement('span'), i=0, j=phrases[0].length, del=true;
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduce){
     setTimeout(function tick(){
@@ -1055,7 +1116,7 @@ document.addEventListener("DOMContentLoaded",function(){(function(){
   document.querySelectorAll('section .sec-head').forEach(function(h,i){h.setAttribute('data-num',String(i+1).padStart(2,'0'));});
 
   // reveal on scroll with stagger
-  var groups=['.sec-head','.about-lead','.about-story p','.duo-col','.why-item','.now','.mod','.about-grid > *','.stack-col > *','.svc','.job','.feature','.proj','.skill-col','.edu .panel','.contact-head','.links .link','form.panel','.stat'];
+  var groups=['.sec-head','.post','.faq details','.about-lead','.about-story p','.duo-col','.why-item','.now','.mod','.about-grid > *','.stack-col > *','.svc','.job','.feature','.proj','.skill-col','.edu .panel','.contact-head','.links .link','form.panel','.stat'];
   var els=[];
   groups.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el,i){if(el.classList.contains('stack-col'))return;el.classList.add('reveal');el.style.setProperty('--dl',(i%3)*0.1+'s');els.push(el);});});
   document.querySelectorAll('.sec-head').forEach(function(h){h.classList.remove('reveal');});
@@ -1069,7 +1130,7 @@ document.addEventListener("DOMContentLoaded",function(){(function(){
     c.textContent='0';requestAnimationFrame(step);}
 
   // spotlight cards
-  document.querySelectorAll('.proj,.svc,.panel,.link,.feature,.mod').forEach(function(card){
+  document.querySelectorAll('.proj,.svc,.panel,.link,.feature,.mod,.post a').forEach(function(card){
     card.classList.add('spot');
     card.addEventListener('pointermove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px');});
   });
@@ -1102,7 +1163,7 @@ document.addEventListener("DOMContentLoaded",function(){(function(){
 
   // ===== 3D TILT CARDS =====
   if(!rm && matchMedia('(pointer:fine)').matches){
-    document.querySelectorAll('.proj,.svc,.duo-col,.mod,.hero-card').forEach(function(c){
+    document.querySelectorAll('.proj,.svc,.duo-col,.mod').forEach(function(c){
       c.classList.add('tilt');
       var sh=document.createElement('span');sh.className='tilt-shine';c.appendChild(sh);
       var max=c.classList.contains('hero-card')?12:(c.classList.contains('mod')?14:(c.classList.contains('duo-col')?5:8));
@@ -1134,306 +1195,33 @@ document.addEventListener("DOMContentLoaded",function(){(function(){
     })(t0);
   })();
 
-  // ===== HERO FLIP CARD =====
-  var flip=document.getElementById('flip'),hc=document.getElementById('heroCard'),hov=false,ft;
-  flip.addEventListener('click',function(){flip.classList.toggle('flipped');clearInterval(ft);});
-  var hr=document.getElementById('heroRight');hr.addEventListener('animationend',function(e){if(e.target===hr&&e.animationName==='fadeUp')hr.classList.remove('load','d5');});
-  hc.addEventListener('pointerenter',function(){hov=true});hc.addEventListener('pointerleave',function(){hov=false});
-  if(!rm) ft=setInterval(function(){if(!hov&&!document.hidden)flip.classList.toggle('flipped');},5500);
-
-
-  // ===== 3D DESK SCENE =====
+  // ===== HERO PROJECT DECK =====
+  var hr=document.getElementById('heroRight');
+  if(hr) hr.addEventListener('animationend',function(e){if(e.target===hr&&e.animationName==='fadeUp')hr.classList.remove('load','d5');});
   (function(){
-    var host=document.getElementById('scene3d'),wrap=document.getElementById('heroRight');
-    if(!host||!window.THREE)return;
-    var T=THREE,mobile=matchMedia('(max-width:980px)').matches||!matchMedia('(pointer:fine)').matches;
-    var renderer;
-    try{renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});}catch(e){return;}
-    if(!renderer.getContext())return;
-    wrap.classList.add('has-3d');
-    var W=host.clientWidth,H=host.clientHeight;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,mobile?1.5:2));
-    renderer.setSize(W,H);renderer.outputEncoding=T.sRGBEncoding;
-    renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
-    renderer.shadowMap.enabled=!mobile;renderer.shadowMap.type=T.PCFSoftShadowMap;
-    host.appendChild(renderer.domElement);
-    var hint=document.createElement('div');hint.className='s3-hint';hint.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 9l10 4-4 2-2 4z"/><path d="M5 3v3M3 5h3M8 4l1.5 1.5M4 8l1.5 1.5"/></svg>Click the screens, laptop or lamp';if(!mobile)host.appendChild(hint);
-
-    var scene=new T.Scene();scene.fog=new T.Fog(0x070B14,7,14);
-    var cam=new T.PerspectiveCamera(mobile?40:34,W/H,.1,50);
-    var camBase=new T.Vector3(.35,1.3,4.15),look=new T.Vector3(.15,.5,0);
-    cam.position.set(3.5,3.2,8);
-
-    // materials
-    var M=function(c,r,m){return new T.MeshStandardMaterial({color:c,roughness:r==null?.6:r,metalness:m||0});};
-    var mDesk=M(0x121A2B,.45,.2),mMetal=M(0x2A3550,.35,.8),mBlack=M(0x0B0F18,.4,.4),mFrame=M(0x111827,.35,.6),mKey=M(0x1B2436,.5,.2),mMug=M(0xE8EDF7,.35,0),mBlue=M(0x3D7BFF,.4,.1);
-    function shadow(o){o.castShadow=true;o.receiveShadow=true;return o;}
-    function rbox(w,h,d,r,mat){
-      var x=-w/2,y=-h/2,sh=new T.Shape();
-      sh.moveTo(x+r,y);sh.lineTo(x+w-r,y);sh.quadraticCurveTo(x+w,y,x+w,y+r);sh.lineTo(x+w,y+h-r);sh.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
-      sh.lineTo(x+r,y+h);sh.quadraticCurveTo(x,y+h,x,y+h-r);sh.lineTo(x,y+r);sh.quadraticCurveTo(x,y,x+r,y);
-      var g=new T.ExtrudeGeometry(sh,{depth:d,bevelEnabled:true,bevelThickness:.012,bevelSize:.012,bevelSegments:2,curveSegments:6});g.translate(0,0,-d/2);
-      return shadow(new T.Mesh(g,mat));
+    var deck=document.getElementById('deck'); if(!deck) return;
+    var cards=[].slice.call(deck.querySelectorAll('.dcard')), dots=[].slice.call(document.querySelectorAll('.dots .dot'));
+    var n=cards.length, cur=0, timer=null, paused=false, DUR=4200;
+    function render(){
+      cards.forEach(function(c,i){
+        var p=(i-cur+n)%n; c.setAttribute('data-pos',p);
+        c.setAttribute('tabindex',p===0?'0':'-1'); c.setAttribute('aria-hidden',p===0?'false':'true');
+      });
+      dots.forEach(function(d,i){ d.classList.toggle('on',i===cur); d.setAttribute('aria-selected',i===cur); d.classList.remove('run'); void d.offsetWidth; if(i===cur&&!paused&&!rm) d.classList.add('run'); });
     }
-
-    // canvas screens
-    function screen(cw,ch){var c=document.createElement('canvas');c.width=cw;c.height=ch;var tx=new T.CanvasTexture(c);tx.encoding=T.sRGBEncoding;tx.anisotropy=8;return {c:c,g:c.getContext('2d'),tx:tx};}
-    function rr(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
-    var FONT='"Manrope","Segoe UI",Arial,sans-serif';
-
-    var erp=screen(1280,760),serp=screen(1024,640),code=screen(900,560);
-    var bars=[.45,.7,.55,.85,.6,.95,.75,.65],barT=bars.slice();
-    function drawERP(t){
-      var g=erp.g,W=1280,H=760;
-      var bg=g.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#0B2A6B');bg.addColorStop(1,'#071637');g.fillStyle=bg;g.fillRect(0,0,W,H);
-      g.fillStyle='#04070F';g.fillRect(0,0,W,70);
-      g.fillStyle='#3D7BFF';g.font='800 28px '+FONT;g.fillText('AIRSUPPLY ERP',36,46);
-      var menu=['Administration','Purchases','Sales','Warehousing','Import/Export','Operations','HR/Payroll','Reports'];
-      g.font='600 17px '+FONT;var mx=300;menu.forEach(function(m,i){g.fillStyle=i===5?'#FFFFFF':'#8FA7D6';g.fillText(m,mx,44);if(i===5){g.fillStyle='#3D7BFF';g.fillRect(mx,56,g.measureText(m).width,3);}mx+=g.measureText(m).width+28;});
-      // sidebar
-      g.fillStyle='rgba(4,10,25,.55)';g.fillRect(0,70,250,H-70);
-      ['Task Setup','Task Manager','Meeting Manager','Ticket Manager','Memos','Complaints'].forEach(function(n,i){
-        if(i===1){g.fillStyle='rgba(61,123,255,.25)';rr(g,14,96+i*58,222,44,10);g.fill();}
-        g.fillStyle=i===1?'#FFFFFF':'#9FB4DD';g.font=(i===1?'700 ':'500 ')+'19px '+FONT;g.fillText(n,32,125+i*58);});
-      // title
-      g.fillStyle='#FFFFFF';g.font='800 34px '+FONT;g.fillText('Task Manager',290,128);
-      g.fillStyle='#8FA7D6';g.font='500 18px '+FONT;g.fillText('Assign, track and resolve work across departments',290,158);
-      // KPI cards
-      var k=[['Open tasks',Math.round(24+6*Math.sin(t*.7))],['Due today',Math.round(9+3*Math.sin(t*.9+1))],['Resolved',Math.round(142+t*.6)%400]];
-      k.forEach(function(v,i){var x=290+i*318;g.fillStyle='rgba(255,255,255,.07)';rr(g,x,190,296,118,16);g.fill();g.strokeStyle='rgba(127,168,255,.25)';g.lineWidth=2;g.stroke();
-        g.fillStyle='#9FB4DD';g.font='600 18px '+FONT;g.fillText(v[0],x+24,228);g.fillStyle='#FFFFFF';g.font='800 46px '+FONT;g.fillText(String(v[1]),x+24,284);});
-      // chart
-      g.fillStyle='rgba(255,255,255,.06)';rr(g,290,334,610,390,16);g.fill();
-      g.fillStyle='#9FB4DD';g.font='600 18px '+FONT;g.fillText('Tasks completed this week',314,372);
-      bars.forEach(function(b,i){barT[i]+=(b-barT[i])*.06;var bh=barT[i]*260,x=330+i*70;var gr=g.createLinearGradient(0,700-bh,0,700);gr.addColorStop(0,'#7FA8FF');gr.addColorStop(1,'#1E4FCC');g.fillStyle=gr;rr(g,x,700-bh,40,bh,8);g.fill();});
-      // table
-      g.fillStyle='rgba(255,255,255,.06)';rr(g,922,334,326,390,16);g.fill();
-      g.fillStyle='#9FB4DD';g.font='600 18px '+FONT;g.fillText('Recent tickets',946,372);
-      for(var r=0;r<6;r++){var y=404+r*52;g.fillStyle=r%2?'rgba(255,255,255,.03)':'rgba(255,255,255,.06)';rr(g,940,y,290,40,8);g.fill();
-        g.fillStyle=['#3CCB8B','#F5B748','#3D7BFF'][(r+Math.floor(t/2))%3];g.beginPath();g.arc(962,y+20,7,0,7);g.fill();
-        g.fillStyle='rgba(220,230,250,.55)';rr(g,980,y+14,120+(r*37)%90,12,6);g.fill();}
-      erp.tx.needsUpdate=true;
-    }
-    var query='Rao Farzam Ahmed';
-    function drawSERP(t){
-      var g=serp.g,W=1024,H=640;g.fillStyle='#0E1524';g.fillRect(0,0,W,H);
-      g.fillStyle='#E8EDF7';g.font='800 30px '+FONT;g.fillText('Search',40,58);
-      g.fillStyle='#131C2F';rr(g,40,86,944,64,32);g.fill();g.strokeStyle='#26345A';g.lineWidth=2;g.stroke();
-      var cyc=t%9,n=Math.min(query.length,Math.floor(cyc*7));g.fillStyle='#E8EDF7';g.font='600 26px '+FONT;var q=query.slice(0,n);g.fillText(q,92,127);
-      g.strokeStyle='#8A97B0';g.lineWidth=3;g.beginPath();g.arc(70,116,10,0,7);g.stroke();
-      if(Math.floor(t*2)%2===0){g.fillStyle='#7FA8FF';g.fillRect(96+g.measureText(q).width,104,3,30);}
-      var show=n>=query.length,a=show?Math.min(1,(cyc-query.length/7)*2):0;
-      g.globalAlpha=a;
-      g.fillStyle='rgba(61,123,255,.12)';rr(g,40,180,944,210,20);g.fill();g.strokeStyle='rgba(61,123,255,.5)';g.lineWidth=2;g.stroke();
-      g.fillStyle='#3D7BFF';g.beginPath();g.arc(92,232,24,0,7);g.fill();g.fillStyle='#fff';g.font='800 18px '+FONT;g.fillText('RF',79,239);
-      g.fillStyle='#E8EDF7';g.font='700 22px '+FONT;g.fillText('Rao Farzam Ahmed',130,226);g.fillStyle='#8A97B0';g.font='500 18px '+FONT;g.fillText('raofarzam.github.io',130,252);
-      g.fillStyle='#7FA8FF';g.font='700 30px '+FONT;g.fillText('Full-Stack Developer & SEO Specialist',68,304);
-      g.fillStyle='#A9B5CC';g.font='500 20px '+FONT;g.fillText('Websites, e-commerce stores and ERP systems,',68,342);g.fillText('built properly and ranked on Google.',68,370);
-      g.fillStyle='#3D7BFF';rr(g,880,196,84,44,22);g.fill();g.fillStyle='#fff';g.font='800 24px '+FONT;g.fillText('#1',902,227);
-      for(var r=0;r<2;r++){var y=420+r*104;g.fillStyle='#1C2740';rr(g,68,y,220,14,7);g.fill();rr(g,68,y+30,520,20,8);g.fill();rr(g,68,y+64,760,12,6);g.fill();}
-      g.globalAlpha=1;serp.tx.needsUpdate=true;
-    }
-    var lines=[
-      [['Imports ','#C792EA'],['System.Data.SqlClient','#E8EDF7']],
-      [],
-      [['Public Class ','#C792EA'],['TaskManager','#7FA8FF']],
-      [['  Protected Sub ','#C792EA'],['SaveTask','#82D9A6'],['(sender, e)','#E8EDF7']],
-      [['    Dim ','#C792EA'],['task ','#E8EDF7'],['As New ','#C792EA'],['TaskItem','#7FA8FF'],['()','#E8EDF7']],
-      [['    task.AssignedTo = ','#E8EDF7'],['ddlUser.SelectedValue','#F5B748']],
-      [['    task.DueDate = ','#E8EDF7'],['txtDue.Text','#F5B748']],
-      [['    ','#E8EDF7'],['TaskService','#7FA8FF'],['.Save(task)','#E8EDF7']],
-      [['    lblStatus.Text = ','#E8EDF7'],['"Task assigned"','#82D9A6']],
-      [['  End Sub','#C792EA']],
-      [['End Class','#C792EA']],
-      [],
-      [['// SEO: ','#5B6884'],['meta + schema ready','#5B6884']],
-      [['<','#8A97B0'],['title','#FF8A8A'],['>','#8A97B0'],['Rao Farzam Ahmed','#E8EDF7'],['</','#8A97B0'],['title','#FF8A8A'],['>','#8A97B0']],
-    ];
-    function drawCode(t){
-      var g=code.g,W=900,H=560;g.fillStyle='#0A0F1C';g.fillRect(0,0,W,H);
-      g.fillStyle='#111A2C';g.fillRect(0,0,W,46);['#FF5F57','#FEBC2E','#28C840'].forEach(function(c,i){g.fillStyle=c;g.beginPath();g.arc(28+i*24,23,7,0,7);g.fill();});
-      g.fillStyle='#8A97B0';g.font='600 17px '+FONT;g.fillText('TaskManager.aspx.vb',110,29);
-      var total=lines.reduce(function(a,l){return a+l.reduce(function(b,p){return b+p[0].length},0)+1},0);
-      var shown=Math.floor((t*38)%(total+120));var cnt=0;
-      g.font='500 21px Consolas,"Courier New",monospace';
-      for(var i=0;i<lines.length;i++){var y=88+i*33;g.fillStyle='#3A4560';g.fillText(String(i+1).padStart(2,' '),18,y);var x=64;
-        for(var j=0;j<lines[i].length;j++){var p=lines[i][j],take=Math.max(0,Math.min(p[0].length,shown-cnt));cnt+=p[0].length;
-          if(take>0){g.fillStyle=p[1];var tx=p[0].slice(0,take);g.fillText(tx,x,y);x+=g.measureText(tx).width;}}
-        cnt+=1;if(cnt>=shown&&cnt-1-shown<1&&Math.floor(t*2.5)%2===0){g.fillStyle='#7FA8FF';g.fillRect(x+2,y-20,3,26);}
-      }
-      code.tx.needsUpdate=true;
-    }
-
-    var root=new T.Group();scene.add(root);
-
-    // floor with soft fade
-    var fc=document.createElement('canvas');fc.width=fc.height=256;var fg=fc.getContext('2d'),grd=fg.createRadialGradient(128,128,10,128,128,128);grd.addColorStop(0,'#fff');grd.addColorStop(1,'#000');fg.fillStyle=grd;fg.fillRect(0,0,256,256);
-    var floor=new T.Mesh(new T.CircleGeometry(5,64),new T.MeshStandardMaterial({color:0x0D1424,roughness:.85,metalness:.1,transparent:true,alphaMap:new T.CanvasTexture(fc)}));
-    floor.rotation.x=-Math.PI/2;floor.position.y=-.95;floor.receiveShadow=true;root.add(floor);
-    var grid=new T.GridHelper(8,32,0x1E2C4D,0x152038);grid.position.y=-.949;grid.material.transparent=true;grid.material.opacity=.35;root.add(grid);
-
-    // desk
-    var top=rbox(3.9,1.55,.07,.06,mDesk);top.rotation.x=-Math.PI/2;top.position.set(0,0,.05);root.add(top);
-    var edge=new T.Mesh(new T.BoxGeometry(3.86,.012,.012),new T.MeshBasicMaterial({color:0x3D7BFF}));edge.position.set(0,.02,.84);root.add(edge);
-    [[-1.8,.7],[1.8,.7],[-1.8,-.6],[1.8,-.6]].forEach(function(p){var l=shadow(new T.Mesh(new T.BoxGeometry(.06,.95,.06),mMetal));l.position.set(p[0],-.48,p[1]);root.add(l);});
-
-    // monitor builder
-    function monitor(w,h,tex,x,z,ry){
-      var g=new T.Group();
-      var frame=rbox(w+.08,h+.08,.05,.04,mFrame);g.add(frame);
-      var scr=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({map:tex,toneMapped:false}));scr.position.z=.042;g.add(scr);
-      var back=rbox(w*.5,h*.45,.08,.04,mFrame);back.position.z=-.05;g.add(back);
-      var neck=shadow(new T.Mesh(new T.CylinderGeometry(.03,.035,.42,16),mMetal));neck.position.set(0,-h/2-.12,-.09);g.add(neck);
-      var base=rbox(.46,.24,.025,.04,mMetal);base.rotation.x=-Math.PI/2;base.position.set(0,-h/2-.33,-.06);g.add(base);
-      g.position.set(x,h/2+.34,z);g.rotation.y=ry;root.add(g);
-      var glow=new T.PointLight(0x3D7BFF,.55,2.6);glow.position.set(0,0,.6);g.add(glow);
-      return g;
-    }
-    var mon1=monitor(1.6,.95,erp.tx,-.62,-.25,.16);
-    var mon2=monitor(1.15,.72,serp.tx,1.12,-.12,-.38);
-
-    // laptop
-    var lap=new T.Group();lap.position.set(.52,.04,.42);lap.rotation.y=-.28;root.add(lap);
-    var lb=rbox(.86,.58,.03,.03,mMetal);lb.rotation.x=-Math.PI/2;lap.add(lb);
-    var kb=new T.Mesh(new T.PlaneGeometry(.74,.3),M(0x0E1422,.6,.2));kb.rotation.x=-Math.PI/2;kb.position.set(0,.018,-.05);lap.add(kb);
-    var hinge=new T.Group();hinge.position.set(0,.01,-.28);hinge.rotation.x=-.32;lap.add(hinge);
-    var ls=rbox(.86,.56,.02,.03,mMetal);ls.position.set(0,.28,0);hinge.add(ls);
-    var lscr=new T.Mesh(new T.PlaneGeometry(.78,.48),new T.MeshBasicMaterial({map:code.tx,toneMapped:false}));lscr.position.set(0,.28,.04);hinge.add(lscr);
-
-    // keyboard (instanced keys)
-    var kbd=new T.Group();kbd.position.set(-.62,.045,.45);kbd.rotation.y=.08;root.add(kbd);
-    var kbase=rbox(1.0,.32,.025,.03,mBlack);kbase.rotation.x=-Math.PI/2;kbd.add(kbase);
-    var keys=new T.InstancedMesh(new T.BoxGeometry(.056,.018,.056),mKey,56),d=new T.Object3D(),ki=0;
-    for(var r=0;r<4;r++)for(var c=0;c<14;c++){d.position.set(-.44+c*.068,.018,-.11+r*.072);d.updateMatrix();keys.setMatrixAt(ki++,d.matrix);}
-    keys.castShadow=true;kbd.add(keys);
-    var mouse=shadow(new T.Mesh(new T.SphereGeometry(.06,24,16),mBlack));mouse.scale.set(1,.45,1.5);mouse.position.set(-.0,.05,.5);root.add(mouse);
-    var mled=new T.Mesh(new T.BoxGeometry(.004,.004,.04),new T.MeshBasicMaterial({color:0x3D7BFF}));mled.position.set(0,.078,.47);root.add(mled);
-
-    // mug with steam
-    var mug=new T.Group();mug.position.set(1.35,.04,.55);
-    var cup=shadow(new T.Mesh(new T.CylinderGeometry(.09,.08,.2,28),mMug));cup.position.y=.1;mug.add(cup);
-    var coffee=new T.Mesh(new T.CircleGeometry(.082,24),M(0x3B2416,.3,0));coffee.rotation.x=-Math.PI/2;coffee.position.y=.19;mug.add(coffee);
-    var handle=shadow(new T.Mesh(new T.TorusGeometry(.055,.014,10,20,Math.PI),mMug));handle.rotation.z=-Math.PI/2;handle.position.set(.09,.1,0);mug.add(handle);
-    var sc=document.createElement('canvas');sc.width=sc.height=64;var sg=sc.getContext('2d'),sgr=sg.createRadialGradient(32,32,0,32,32,32);sgr.addColorStop(0,'rgba(255,255,255,.55)');sgr.addColorStop(1,'rgba(255,255,255,0)');sg.fillStyle=sgr;sg.fillRect(0,0,64,64);
-    var steamTex=new T.CanvasTexture(sc),steam=[];
-    for(var si=0;si<10;si++){var sp=new T.Sprite(new T.SpriteMaterial({map:steamTex,transparent:true,depthWrite:false,opacity:0}));sp.userData.o=si/10;mug.add(sp);steam.push(sp);}
-
-    // lamp
-    var lamp=new T.Group();lamp.position.set(-1.55,.04,.02);lamp.rotation.y=.25;root.add(lamp);
-    var lbase=shadow(new T.Mesh(new T.CylinderGeometry(.13,.15,.04,28),mBlack));lamp.add(lbase);
-    var arm1=shadow(new T.Mesh(new T.CylinderGeometry(.015,.015,.75,10),mMetal));arm1.position.set(0,.37,0);arm1.rotation.z=-.25;lamp.add(arm1);
-    var arm2=shadow(new T.Mesh(new T.CylinderGeometry(.015,.015,.5,10),mMetal));arm2.position.set(.21,.78,0);arm2.rotation.z=1.05;lamp.add(arm2);
-    var head=shadow(new T.Mesh(new T.ConeGeometry(.12,.2,24,1,true),M(0x1A2233,.4,.6)));head.position.set(.42,.66,0);head.rotation.z=.5;head.material.side=T.DoubleSide;lamp.add(head);
-    var bulb=new T.Mesh(new T.SphereGeometry(.04,16,12),new T.MeshBasicMaterial({color:0xFFE2B8}));bulb.position.set(.4,.62,0);lamp.add(bulb);
-    var spot=new T.SpotLight(0xFFC98F,1.6,4,.7,.6,1.4);lamp.userData.spot=spot;lamp.userData.bulb=bulb;spot.position.set(.4,.62,0);spot.castShadow=!mobile;spot.shadow.mapSize.set(1024,1024);lamp.add(spot);
-    var tgt=new T.Object3D();tgt.position.set(.9,-.1,.2);lamp.add(tgt);spot.target=tgt;
-
-    // plant
-    var pot=shadow(new T.Mesh(new T.CylinderGeometry(.1,.08,.18,24),M(0x2A3550,.7,0)));pot.position.set(-1.6,.13,-.55);root.add(pot);
-    for(var pl=0;pl<7;pl++){var leaf=shadow(new T.Mesh(new T.SphereGeometry(.07,12,8),M(0x2E8B5A,.7,0)));var ang=pl/7*Math.PI*2;leaf.scale.set(.6,1.8,.35);leaf.position.set(-1.6+Math.cos(ang)*.06,.36+(pl%3)*.04,-.55+Math.sin(ang)*.06);leaf.rotation.set(Math.sin(ang)*.5,ang,Math.cos(ang)*.5);root.add(leaf);}
-
-    // floating dust in light
-    var dn=mobile?60:160,dp=new Float32Array(dn*3);for(var di=0;di<dn;di++){dp.set([(Math.random()-.5)*4.5,Math.random()*2.4-.2,(Math.random()-.5)*2.5],di*3);}
-    var dg=new T.BufferGeometry();dg.setAttribute('position',new T.BufferAttribute(dp,3));
-    var dust=new T.Points(dg,new T.PointsMaterial({size:.022,map:steamTex,color:0x9DBBFF,transparent:true,opacity:.7,depthWrite:false,blending:T.AdditiveBlending}));root.add(dust);
-
-    // lights
-    var hemi=new T.HemisphereLight(0x8FB3FF,0x05070D,.4);scene.add(hemi);
-    var key=new T.DirectionalLight(0xDDE6FF,.7);key.position.set(-2.5,4,3);key.castShadow=!mobile;key.shadow.mapSize.set(1024,1024);
-    key.shadow.camera.left=-3;key.shadow.camera.right=3;key.shadow.camera.top=3;key.shadow.camera.bottom=-3;key.shadow.bias=-.0005;scene.add(key);
-    var rim=new T.SpotLight(0x3D7BFF,1.6,9,.8,.7,1);rim.position.set(0,3,-3);rim.target.position.set(0,0,0);scene.add(rim);scene.add(rim.target);
-    var fill=new T.PointLight(0x5B8CFF,.35,6);fill.position.set(2.4,1.2,2);scene.add(fill);
-
-
-    // soft glow halos (fake bloom, always on)
-    function halo(parent,w,h,col,op,z){var m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({map:steamTex,color:col,transparent:true,opacity:op,depthWrite:false,blending:T.AdditiveBlending}));m.position.z=z;parent.add(m);return m;}
-    var halo1=halo(mon1,3.2,2.2,0x3D7BFF,.35,-.12),halo2=halo(mon2,2.4,1.7,0x3D7BFF,.3,-.12);
-    var beam=new T.Mesh(new T.ConeGeometry(.75,1.2,32,1,true),new T.MeshBasicMaterial({color:0xFFC98F,transparent:true,opacity:.07,depthWrite:false,blending:T.AdditiveBlending,side:T.DoubleSide}));
-    beam.position.set(.68,.12,0);beam.rotation.z=.5;lamp.add(beam);
-
-    // clickable objects
-    mon1.userData={action:'#work',label:'Open my ERP work',hover:0};
-    mon2.userData={action:'#services',label:'See my services',hover:0};
-    lap.userData={action:'#projects',label:'View projects',hover:0};
-    mug.userData={action:'#contact',label:'Let’s grab a coffee',hover:0};
-    lamp.userData.action='lamp';lamp.userData.label='Switch the lights';lamp.userData.hover=0;
-    var clickables=[mon1,mon2,lap,lamp];
-    clickables.forEach(function(o){o.userData.baseScale=o.scale.x;});
-
-    // day / night
-    var night=true,mood=1; // 1 = night, 0 = day
-    var C={hemiN:new T.Color(0x8FB3FF),hemiD:new T.Color(0xFFF1DE),keyN:new T.Color(0xDDE6FF),keyD:new T.Color(0xFFE7C4),rimN:new T.Color(0x3D7BFF),rimD:new T.Color(0x9DBBFF),deskN:new T.Color(0x121A2B),deskD:new T.Color(0x5A4636)};
-    function applyMood(m){
-      hemi.intensity=.4+(1-m)*1.3;mDesk.color.copy(C.deskD).lerp(C.deskN,m);hemi.color.copy(C.hemiD).lerp(C.hemiN,m);
-      key.intensity=.7+(1-m)*1.8;key.color.copy(C.keyD).lerp(C.keyN,m);
-      rim.intensity=.25+m*1.35;rim.color.copy(C.rimD).lerp(C.rimN,m);
-      spot.intensity=m*1.6;beam.material.opacity=m*.07;bulb.material.color.setRGB(1,.89*m+.35*(1-m),.72*m+.35*(1-m));
-      halo1.material.opacity=.12+m*.23;halo2.material.opacity=.1+m*.2;
-      renderer.toneMappingExposure=1.15+(1-m)*.15;
-    }
-
-    // bloom (desktop only, if libraries loaded)
-    var composer=null,bloom=null;
-    if(!mobile&&T.EffectComposer&&T.UnrealBloomPass&&T.RenderPass){
-      try{
-        renderer.setClearColor(0x070B14,1);scene.background=new T.Color(0x070B14);
-        composer=new T.EffectComposer(renderer);composer.setPixelRatio(renderer.getPixelRatio());composer.setSize(W,H);
-        composer.addPass(new T.RenderPass(scene,cam));
-        bloom=new T.UnrealBloomPass(new T.Vector2(W,H),.42,.5,.86);composer.addPass(bloom);
-        if(T.GammaCorrectionShader&&T.ShaderPass)composer.addPass(new T.ShaderPass(T.GammaCorrectionShader));
-      }catch(err){composer=null;renderer.setClearColor(0x000000,0);scene.background=null;}
-    }
-
-    // raycast hover + click
-    var ray=new T.Raycaster(),pv=new T.Vector2(),hovered=null,focus=null,focusT=0;
-    var curEl=document.getElementById('cur'),curTag=curEl?curEl.querySelector('.cur-tag'):null;
-    function pick(e){var r=host.getBoundingClientRect();pv.x=((e.clientX-r.left)/r.width)*2-1;pv.y=-((e.clientY-r.top)/r.height)*2+1;ray.setFromCamera(pv,cam);
-      var hits=ray.intersectObjects(clickables,true);if(!hits.length)return null;var o=hits[0].object;while(o&&clickables.indexOf(o)<0)o=o.parent;return o;}
-    host.addEventListener('pointermove',function(e){var o=pick(e);if(o!==hovered){hovered=o;host.style.cursor=o?'pointer':'grab';
-      if(curEl){if(o){if(curTag)curTag.textContent=o.userData.label;curEl.classList.add('view');}else curEl.classList.remove('view');}}});
-    host.addEventListener('pointerleave',function(){hovered=null;if(curEl)curEl.classList.remove('view');});
-    host.addEventListener('click',function(e){var o=pick(e);if(!o)return;
-      if(o.userData.action==='lamp'){night=!night;return;}
-      if(curEl)curEl.classList.remove('view');hovered=null;focus=o;focusT=performance.now();
-      setTimeout(function(){var el=document.querySelector(o.userData.action);if(el)el.scrollIntoView({behavior:'smooth'});},700);
-      setTimeout(function(){focus=null;},1600);});
-
-    // interaction
-    var mx=0,my=0,sx=0,sy=0,scroll=0,visible=true,start=performance.now(),last=0;
-    host.addEventListener('pointermove',function(){host.classList.add('moved')},{once:true});
-    addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;},{passive:true});
-    addEventListener('scroll',function(){scroll=Math.min(1,scrollY/700);},{passive:true});
-    new IntersectionObserver(function(es){visible=es[0].isIntersecting;}).observe(host);
-    addEventListener('resize',function(){W=host.clientWidth;H=host.clientHeight;renderer.setSize(W,H);if(composer)composer.setSize(W,H);cam.aspect=W/H;cam.updateProjectionMatrix();});
-
-    var introDelay=document.documentElement.classList.contains('preloading')?2100:300;
-    function loop(now){
-      requestAnimationFrame(loop);
-      if(!visible||document.hidden)return;
-      var t=(now-start)/1000;
-      // screens (throttled)
-      if(now-last>(mobile?90:45)){drawERP(t);drawSERP(t);drawCode(t);last=now;if(Math.random()<.02){bars=bars.map(function(){return .35+Math.random()*.65})}}
-      // camera
-      sx+=(mx-sx)*.05;sy+=(my-sy)*.05;
-      var k=Math.min(1,Math.max(0,(now-start-introDelay)/1800));k=1-Math.pow(1-k,3);
-      var tx=camBase.x+sx*1.1+Math.sin(t*.25)*.08,ty=camBase.y-sy*.5+Math.sin(t*.4)*.03,tz=camBase.z-scroll*1.3;
-      cam.position.x+=((k<1?3.5+(tx-3.5)*k:tx)-cam.position.x)*(k<1?.2:.06);
-      cam.position.y+=((k<1?3.2+(ty-3.2)*k:ty)-cam.position.y)*(k<1?.2:.06);
-      cam.position.z+=((k<1?8+(tz-8)*k:tz)-cam.position.z)*(k<1?.2:.06);
-      if(focus){var fp=new T.Vector3();focus.getWorldPosition(fp);if(focus===mon1||focus===mon2)fp.y=focus.position.y;
-        var fpos=fp.clone().add(new T.Vector3(0,.15,1.5));cam.position.lerp(fpos,.08);cam.lookAt(fp);}
-      else cam.lookAt(look.x+sx*.3,look.y-sy*.15+scroll*.15,look.z);
-      clickables.forEach(function(o){var h=o===hovered?1:0;o.userData.hover+=(h-o.userData.hover)*.15;o.scale.setScalar(o.userData.baseScale*(1+o.userData.hover*.035));});
-      halo1.material.opacity+= (mon1.userData.hover*.25);halo2.material.opacity+=(mon2.userData.hover*.25);
-      mood+=((night?1:0)-mood)*.06;applyMood(mood);
-      // steam + dust
-      if(mug.parent)steam.forEach(function(sp){var p=(t*.35+sp.userData.o)%1;sp.position.set(Math.sin(p*6+sp.userData.o*9)*.04,.22+p*.55,0);sp.scale.setScalar(.08+p*.18);sp.material.opacity=(1-p)*p*1.4;});
-      dust.rotation.y=t*.02;dust.position.y=Math.sin(t*.3)*.05;
-      mon1.position.y=.815+Math.sin(t*.8)*.0;
-      if(composer)composer.render();else renderer.render(scene,cam);
-    }
-    drawERP(0);drawSERP(0);drawCode(0);
-    if(rm){applyMood(1);cam.position.copy(camBase);cam.lookAt(look);if(composer)composer.render();else renderer.render(scene,cam);}else requestAnimationFrame(loop);
+    function go(i){ var prev=cur; cur=(i+n)%n; if(prev!==cur){ cards[prev].classList.add('leaving'); setTimeout(function(){cards[prev].classList.remove('leaving');},700); } render(); restart(); }
+    function restart(){ clearTimeout(timer); if(!paused&&!rm) timer=setTimeout(function(){go(cur+1);},DUR); }
+    dots.forEach(function(d,i){ d.addEventListener('click',function(){go(i);}); });
+    function pause(){paused=true;clearTimeout(timer);dots.forEach(function(d){d.classList.remove('run')});}
+    function resume(){paused=false;render();restart();}
+    deck.addEventListener('pointerenter',pause); deck.addEventListener('pointerleave',resume);
+    deck.addEventListener('focusin',pause); deck.addEventListener('focusout',resume);
+    document.addEventListener('visibilitychange',function(){document.hidden?pause():resume();});
+    // swipe on touch
+    var sx=null; deck.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+    deck.addEventListener('touchend',function(e){ if(sx===null)return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ e.preventDefault&&0; go(cur+(dx<0?1:-1)); } sx=null; });
+    var startDelay=document.documentElement.classList.contains('preloading')?2200:600;
+    render(); clearTimeout(timer); if(!rm) timer=setTimeout(function(){go(cur+1);},DUR+startDelay);
   })();
 
   // ===== GALLERIES =====

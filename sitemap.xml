@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://raofarzam.github.io/</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://raofarzam.github.io/</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/blog/</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/work/airsupply-erp.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/work/the-food-current.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/work/velocity-cycles.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/work/toynest.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/work/gracious-garments.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/blog/why-your-new-website-is-not-on-google.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/blog/off-page-seo-link-building-for-small-businesses.html</loc><lastmod>2026-11-21</lastmod></url>
+  <url><loc>https://raofarzam.github.io/blog/wordpress-or-custom-website.html</loc><lastmod>2026-11-21</lastmod></url>
 </urlset>
